@@ -1,0 +1,31 @@
+for using this program you need bash and g++ compiler.
+
+First compile the code by using the following line:
+
+g++ -o Flux_Jprep.out main.cpp read_geom.cpp vec.cpp
+
+For doing the job you need J_extract.sh and Flux_Jprep.out files.
+copy these files to the directory which you have the calculations from AIMALL program.
+You should have the directory of "atomicfiles"
+
+copy J_extract.sh file into the atomicfiles directory.
+run the follwing lines:
+
+chmod +x J_extract.sh
+./J_extract.sh
+
+It reads all .int files and extract the J's from the files.
+
+then copy the produced file "Total_J.txt" to the directory which Flux_Jprep.out file is present.
+To run the program you need to have an input file. the name of input file is "ref_atoms.txt"
+in this file you give the reference atom or atoms that you want the magnetic field be prependicular to them.
+for example the "ref_atoms.txt" file in repository tells the program that we want the electric current when the magnetic fiels is prependicular to atom C11 or prependicular to bond bentween C47 and C4
+ we also need to make a copy of ".sumviz file"
+
+if we run the following lines 
+
+cp *.sumviz temp.sumviz
+./Flux_Jprep.out
+
+
+
