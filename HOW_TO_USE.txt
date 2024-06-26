@@ -16,6 +16,7 @@ First, compile the code using the following command:
 
 g++ -o Flux_Jprep.out main.cpp read_geom.cpp vec.cpp
 
+It produces the file "Flux_Jprep.out"
 
 ***Preparation***
 You will need the files J_extract.sh and Flux_Jprep.out. Follow these steps:
@@ -56,7 +57,7 @@ cp *.sumviz temp.sumviz
 ./Flux_Jprep.out
 
 This will process the input files and perform the necessary calculations based on the specified reference atoms.
-
+It produces the file "FluxJ_prep2B.txt," which contains the electrical current generated when a magnetic field of 1 tesla is applied to the molecule in a direction perpendicular to the reference atoms.
 
 
 
