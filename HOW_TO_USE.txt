@@ -1,31 +1,63 @@
-for using this program you need bash and g++ compiler.
+*****Program Manual*****
 
-First compile the code by using the following line:
+***Prerequisites***
+To use this program, ensure you have the following installed:
+
+1-Bash
+Bash (Bourne Again SHell) is a command-line interpreter or shell that provides a command-line user interface for Unix-based operating systems. It allows users to interact with the system by typing commands into a terminal window. Bash is a powerful tool that offers a range of features for system administration, scripting, and automation.
+
+2-g++ compiler
+
+The g++ compiler is the GNU Compiler Collection's C++ compiler, part of the GCC (GNU Compiler Collection). It is a free and open-source compiler used to compile C++ programs. The g++ compiler translates C++ source code into executable machine code, enabling the written programs to run on a computer.
+
+
+***Compilation***
+First, compile the code using the following command:
 
 g++ -o Flux_Jprep.out main.cpp read_geom.cpp vec.cpp
 
-For doing the job you need J_extract.sh and Flux_Jprep.out files.
-copy these files to the directory which you have the calculations from AIMALL program.
-You should have the directory of "atomicfiles"
 
-copy J_extract.sh file into the atomicfiles directory.
-run the follwing lines:
+***Preparation***
+You will need the files J_extract.sh and Flux_Jprep.out. Follow these steps:
 
+1-Copy J_extract.sh and Flux_Jprep.out to the directory containing your AIMALL program calculations.
+Ensure there is a subdirectory named atomicfiles
+
+2-Extracting J Values
+Copy the J_extract.sh file into the atomicfiles directory:
+cp J_extract.sh atomicfiles/
+
+3-Navigate to the atomicfiles directory and run the following commands:
+cd atomicfiles
 chmod +x J_extract.sh
 ./J_extract.sh
 
-It reads all .int files and extract the J's from the files.
+This script reads all .int files in the directory and extracts the J values.
 
-then copy the produced file "Total_J.txt" to the directory which Flux_Jprep.out file is present.
-To run the program you need to have an input file. the name of input file is "ref_atoms.txt"
-in this file you give the reference atom or atoms that you want the magnetic field be prependicular to them.
-for example the "ref_atoms.txt" file in repository tells the program that we want the electric current when the magnetic fiels is prependicular to atom C11 or prependicular to bond bentween C47 and C4
- we also need to make a copy of ".sumviz file"
 
-if we run the following lines 
+
+***Running the Main Program***
+
+1- Move the produced Total_J.txt file to the directory containing Flux_Jprep.out.
+
+2- Create an input file named ref_atoms.txt. This file should specify the reference atom(s) for which the magnetic field should be perpendicular. For example:
+
+C11 C11
+C47 C48
+
+The above file indicates that the electric current should be considered when the magnetic field is perpendicular to atom C11 or perpendicular to the bond between C47 and C48.
+
+3- Make a copy of the .sumviz file in the same directory as Flux_Jprep.out:
 
 cp *.sumviz temp.sumviz
+
+4- Finally, run the program:
+
 ./Flux_Jprep.out
+
+This will process the input files and perform the necessary calculations based on the specified reference atoms.
+
+
 
 
 
